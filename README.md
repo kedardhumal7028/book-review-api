@@ -54,3 +54,35 @@ POST    `/api/books/:id/reviews`    Submit a review for a book (1 review per use
 
 http
 GET /api/search?query=harry
+
+
+
+
+##  Database Schema Overview
+
+### User
+js
+{
+  name: String,
+  email: String,
+  password: String (hashed)
+}
+
+
+## Book
+{
+  title: String,
+  author: String,
+  genre: String,
+  reviews: [ObjectId -> Review]
+}
+
+
+## Review
+{
+  book: ObjectId,
+  user: ObjectId,
+  rating: Number,
+  comment: String
+}
+
