@@ -35,7 +35,9 @@ A RESTful API for managing books and user reviews built using **Node.js**, **Exp
 
  Method  Endpoint                    Description                                      
 
-POST    `/api/books`                Add a book (Authenticated users only)            GET     `/api/books`                Get all books (with optional filters & pagination)  GET     `/api/books/:id`            Get a book by ID with average rating & reviews   POST    `/api/books/:id/reviews`    Submit a review for a book (1 review per user)  
+POST    `/api/books`                Add a book (Authenticated users only)            
+GET     `/api/books`                Get all books (with optional filters & pagination)  GET     `/api/books/:id`            Get a book by ID with average rating & reviews   
+POST    `/api/books/:id/reviews`    Submit a review for a book (1 review per user)  
 
 
 

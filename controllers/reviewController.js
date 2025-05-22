@@ -1,8 +1,5 @@
-// controllers/reviewController.js
-
 const Review = require('../models/Review');
 
-// 🔄 Update Review
 exports.updateReview = async (req, res) => {
   try {
     const reviewId = req.params.id;
@@ -11,7 +8,6 @@ exports.updateReview = async (req, res) => {
     const review = await Review.findById(reviewId);
     if (!review) return res.status(404).json({ message: 'Review not found' });
 
-    // User check
     if (review.user.toString() !== userId) {
       return res.status(403).json({ message: 'Not authorized to update this review' });
     }
@@ -27,7 +23,6 @@ exports.updateReview = async (req, res) => {
   }
 };
 
-// ❌ Delete Review
 exports.deleteReview = async (req, res) => {
   try {
     const reviewId = req.params.id;

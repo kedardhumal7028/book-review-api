@@ -8,13 +8,12 @@ const auth = (req, res, next) => {
   }
 
   try {
-    // Bearer token असेल तर split करून token काढा
     const actualToken = token.startsWith('Bearer ') ? token.slice(7, token.length) : token;
 
     const decoded = jwt.verify(actualToken, process.env.JWT_SECRET);
-    req.user = decoded.userId;  // userId ठेवतो request मध्ये पुढे वापरायला
+    req.user = decoded.userId;  
 
-    next();  // पुढच्या controller function कडे जा
+    next();  
   } catch (err) {
     res.status(401).json({ message: 'Token is not valid' });
   }

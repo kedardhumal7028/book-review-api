@@ -1,9 +1,6 @@
-// controllers/bookController.js
-
 const Book = require('../models/Book');
 const Review = require('../models/Review');
 
-// ✅ Add Book
 exports.addBook = async (req, res) => {
   try {
     const { title, author, genre, publishedYear } = req.body;
@@ -17,7 +14,6 @@ exports.addBook = async (req, res) => {
   }
 };
 
-// ✅ Get All Books
 exports.getBooks = async (req, res) => {
   try {
     const books = await Book.find();
@@ -27,7 +23,6 @@ exports.getBooks = async (req, res) => {
   }
 };
 
-// ✅ Get Book by ID
 exports.getBookById = async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
@@ -39,12 +34,11 @@ exports.getBookById = async (req, res) => {
   }
 };
 
-// ✅ Add Review
 exports.addReview = async (req, res) => {
   try {
     const { rating, comment } = req.body;
     const bookId = req.params.id;
-    const userId = req.user;  // middleware madhun yeil
+    const userId = req.user;  
 
     const review = new Review({
       user: userId,
@@ -60,7 +54,6 @@ exports.addReview = async (req, res) => {
   }
 };
 
-// ✅ Update Review
 exports.updateReview = async (req, res) => {
   try {
     const review = await Review.findById(req.params.id);
@@ -80,7 +73,6 @@ exports.updateReview = async (req, res) => {
   }
 };
 
-// ✅ Delete Review
 exports.deleteReview = async (req, res) => {
   try {
     const review = await Review.findById(req.params.id);
